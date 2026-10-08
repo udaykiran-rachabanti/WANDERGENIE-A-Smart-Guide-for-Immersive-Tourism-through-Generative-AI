@@ -1,0 +1,27 @@
+{% extends 'users/Userbase.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container mt-4">
+  <h2>🏰 Landmark Image Analyzer</h2>
+  <p class="text-muted">Upload an image of a monument/landmark and get AI-generated details.</p>
+
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="mb-3">
+      <label for="landmark_image" class="form-label">Choose Landmark Image</label>
+      <input type="file" name="landmark_image" id="landmark_image" class="form-control" accept="image/*" required>
+    </div>
+    <button type="submit" class="btn btn-primary w-100">Analyze</button>
+  </form>
+
+  {% if analysis_result %}
+    <div class="card shadow-sm mt-3">
+      <div class="card-body">
+        <h5>🌍 AI Landmark Analysis:</h5>
+        <pre style="white-space: pre-wrap;">{{ analysis_result }}</pre>
+      </div>
+    </div>
+  {% endif %}
+</div>
+{% endblock %}

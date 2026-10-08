@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Assistant Hub</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-image: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+            color: #f8fafc;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            background: linear-gradient(to right, #1b4965, #3f8efc);
+            padding: 1rem 2rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            transition: background 0.3s ease;
+        }
+
+        header.scrolled {
+            background: linear-gradient(to right, #16394e, #2b6cbf);
+        }
+
+        .navbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .navbar h1 {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #f8fafc;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .navbar ul {
+            list-style: none;
+            display: flex;
+            gap: 1.2rem;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar ul li a {
+            color: #f8fafc;
+            text-decoration: none;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            transition: all 0.3s ease;
+            padding: 0.5rem 0.8rem;
+            border-radius: 8px;
+        }
+
+        .navbar ul li a:hover {
+            background: rgba(114, 160, 255, 0.3);
+            color: #f8fafc;
+            transform: scale(1.05);
+            box-shadow: 0 2px 8px rgba(114, 160, 255, 0.3);
+        }
+
+        .chat-content {
+            max-width: 1100px;
+            margin: 2rem auto;
+            padding: 1.5rem;
+            backdrop-filter: blur(8px);
+            border-radius: 12px;
+            animation: slideUp 0.8s ease-in-out;
+            flex: 1;
+            transition: transform 0.3s ease;
+        }
+
+        .chat-content:hover {
+            transform: translateY(-5px);
+        }
+
+        footer {
+            text-align: center;
+            padding: 1rem;
+            background: rgba(30, 41, 59, 0.8);
+            color: #94a3b8;
+            font-size: 0.9rem;
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .navbar h1 {
+                margin-bottom: 0.8rem;
+                font-size: 1.5rem;
+            }
+            .navbar ul {
+                flex-direction: column;
+                width: 100%;
+            }
+            .chat-content {
+                padding: 1rem;
+                margin: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            <h1><i class="fas fa-brain"></i> AI Assistant Hub</h1>
+            <ul>
+                <li><a href="{% url 'UserHome' %}"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="{% url 'wander_genie' %}"><i class="fas fa-compass"></i> WanderGenie Guide</a></li>
+                <li><a href="{% url 'landmark_analyzer' %}"><i class="fas fa-landmark"></i> Landmark Analyzer</a></li>
+                <li><a href="{% url 'base' %}"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <div class="chat-content">
+        {% block content %}
+        <!-- Page content will load here -->
+        {% endblock %}
+    </div>
+
+    <footer>
+        © 2025 AI Assistant Hub | Powered by Gemini 🚀
+    </footer>
+
+    <script>
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,100 @@
+{% extends 'admins/Adminbase.html' %}
+{% block content %}
+<style>
+    .admin-dashboard {
+        max-width: 900px;
+        margin: 4rem auto;
+        background: rgba(255, 255, 255, 0.9);
+        padding: 2.5rem;
+        border-radius: 12px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        color: #1e293b;
+        animation: fadeIn 0.8s ease-in-out;
+        text-align: center;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .admin-dashboard:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
+    }
+
+    .admin-dashboard h2 {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+        color: #1e293b;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .admin-dashboard p {
+        font-size: 1.1rem;
+        color: #4b5563;
+        margin-bottom: 2rem;
+    }
+
+    .dashboard-actions {
+        display: flex;
+        justify-content: center;
+        gap: 1.5rem;
+        flex-wrap: wrap;
+    }
+
+    .dashboard-actions a {
+        padding: 0.8rem 1.6rem;
+        background: linear-gradient(to right, #1b4965, #3f8efc);
+        color: #f8fafc;
+        font-weight: bold;
+        border-radius: 10px;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+    }
+
+    .dashboard-actions a:hover {
+        background: linear-gradient(to right, #16394e, #2b6cbf);
+        transform: scale(1.05);
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media screen and (max-width: 768px) {
+        .admin-dashboard {
+            margin: 2rem 1rem;
+            padding: 1.5rem;
+        }
+
+        .admin-dashboard h2 {
+            font-size: 1.6rem;
+        }
+
+        .admin-dashboard p {
+            font-size: 1rem;
+        }
+
+        .dashboard-actions {
+            flex-direction: column;
+            gap: 1rem;
+        }
+    }
+</style>
+
+<div class="admin-dashboard">
+    <h2><i class="fas fa-user-shield"></i> Welcome Admin, {{ request.session.loggeduser }}</h2>
+<p>Manage your travel experience and access AI-powered tourism insights with personalized guidance, landmark analysis, and cultural tips.</p>
+
+    <div class="dashboard-actions">
+        <a href="{% url 'RegisterUsersView' %}"><i class="fas fa-user-check"></i> View & Activate Users</a>
+        <a href="{% url 'UserLogin' %}"><i class="fas fa-sign-out-alt"></i> Logout</a>
+    </div>
+</div>
+{% endblock %}

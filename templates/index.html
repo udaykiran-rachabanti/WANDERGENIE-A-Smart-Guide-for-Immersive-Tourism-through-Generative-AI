@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="index-header" style="text-align: center; margin-top: 40px;">
+  <h2 style="font-size: 2.2rem; color: #1e293b;">🌍 WanderGenie – AI Smart Tourism Guide</h2>
+  <p style="max-width: 700px; margin: 10px auto; color: #4b5563; font-size: 1.1rem;">
+    Explore destinations like never before with AI-powered immersive guidance, landmark recognition, and personalized travel tips.
+  </p>
+</div>
+
+<div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; margin: 40px 0; padding: 0 1rem;">
+  <!-- Card 1 -->
+  <div class="card" style="flex: 1 1 300px; background: rgba(255,255,255,0.95); border-radius: 12px; padding: 1.5rem; box-shadow: 0 4px 12px rgba(0,0,0,0.2); transition: transform 0.3s ease, box-shadow 0.3s ease;">
+    <h3 style="color: #2563eb;"><i class="fas fa-map-marked-alt"></i> AI Travel Assistant</h3>
+    <p style="color: #4b5563;">Ask anything about your favorite destinations and get real-time insights powered by Generative AI.</p>
+  </div>
+
+  <!-- Card 2 -->
+  <div class="card" style="flex: 1 1 300px; background: rgba(255,255,255,0.95); border-radius: 12px; padding: 1.5rem; box-shadow: 0 4px 12px rgba(0,0,0,0.2); transition: transform 0.3s ease, box-shadow 0.3s ease;">
+    <h3 style="color: #16a34a;"><i class="fas fa-camera"></i> Landmark Analyzer</h3>
+    <p style="color: #4b5563;">Upload a photo of any landmark and let WanderGenie identify it with historical facts and visitor tips.</p>
+  </div>
+
+  <!-- Card 3 -->
+  <div class="card" style="flex: 1 1 300px; background: rgba(255,255,255,0.95); border-radius: 12px; padding: 1.5rem; box-shadow: 0 4px 12px rgba(0,0,0,0.2); transition: transform 0.3s ease, box-shadow 0.3s ease;">
+    <h3 style="color: #d97706;"><i class="fas fa-lightbulb"></i> Personalized Travel Tips</h3>
+    <p style="color: #4b5563;">Get the best travel tips, food suggestions, and cultural insights customized for your journey.</p>
+  </div>
+</div>
+
+
+{% endblock %}
