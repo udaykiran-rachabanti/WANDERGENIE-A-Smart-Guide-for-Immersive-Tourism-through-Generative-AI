@@ -1,4 +1,4 @@
-# WanderGenie 🌍
+# WANDERGENIE: A Smart Guide for Immersive Tourism through Generative AI 🌍
 
 ## AI-Powered Smart Tourism Guide
 
